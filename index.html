@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kanak Malpani — Electrical engineering, models, and on-device systems</title>
+    <meta
+      name="description"
+      content="Kanak Anil Malpani is a second-year electrical engineering student at NIT Tiruchirappalli working on language-model adaptation, computer vision, and on-device systems."
+    />
+    <link rel="canonical" href="https://kanakmalpani.github.io/Kanak-Malpani/" />
+    <meta name="theme-color" content="#12100e" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Kanak Malpani" />
+    <meta
+      property="og:description"
+      content="Second-year electrical engineering at NIT Tiruchirappalli. Small language models, vision audits, and tools that run on the device."
+    />
+    <meta property="og:url" content="https://kanakmalpani.github.io/Kanak-Malpani/" />
+    <meta property="og:image" content="https://kanakmalpani.github.io/Kanak-Malpani/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,460;0,9..144,600;1,9..144,460;1,9..144,560&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Kanak Anil Malpani",
+        "email": "mailto:mrkanakmalpani@gmail.com",
+        "telephone": "+91-91737-20905",
+        "url": "https://kanakmalpani.github.io/Kanak-Malpani/",
+        "sameAs": [
+          "https://github.com/KanakMalpani",
+          "https://www.linkedin.com/in/kanakmalpani/"
+        ],
+        "jobTitle": "B.Tech. student, Electrical and Electronics Engineering",
+        "affiliation": {
+          "@type": "CollegeOrUniversity",
+          "name": "National Institute of Technology Tiruchirappalli"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#research">Skip to research</a>
+    <header class="bar">
+      <div class="wrap bar-inner">
+        <a class="mark" href="#top">Malpani</a>
+        <nav aria-label="On this page">
+          <a href="#research">Research</a>
+          <a href="#work">Work</a>
+          <a href="#record">Record</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="cover" aria-labelledby="name">
+        <div class="wrap cover-inner">
+          <h1 id="name">
+            <span class="kanak">Kanak</span>
+            <span class="malpani">Malpani</span>
+          </h1>
+          <div class="lede">
+            <p>
+              Second-year electrical engineering student at NIT Tiruchirappalli. I adapt small
+              language models, audit vision systems, and build tools that keep working on the device.
+            </p>
+            <p>
+              <a href="#groundlm">GroundLM, ACL 2026.</a>
+              Qwen2.5-1.5B with PiSSA scored 71.4% on GSM8K, above an unadapted 7B model at 68.5%.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="research" aria-labelledby="research-title">
+        <div class="wrap">
+          <h2 id="research-title">Research</h2>
+
+          <article class="paper" id="groundlm">
+            <h3>Efficient Adaptation of Small Language Models for Reliable Mathematical Reasoning</h3>
+            <p class="cite">
+              Kanak Anil Malpani. GroundLM Workshop, ACL 2026. Published.
+            </p>
+            <p>
+              Six parameter-efficient fine-tuning methods, compared directly. Qwen2.5-1.5B with PiSSA
+              reached 71.4% on GSM8K, past the unadapted 7B baseline at 68.5%. The method ranking
+              held across three base models (Kendall’s τ = 1.0). QLoRA cut training VRAM by up to 69.6%.
+            </p>
+            <p>
+              <a class="out" href="https://aclanthology.org/2026.groundlm-1.91/">Read the paper</a>
+            </p>
+          </article>
+
+          <article class="paper" id="worldfloods">
+            <h3>What Does the Clear–Cloudy Gap Measure? A Controlled Audit of WorldFloods Flood Segmentation</h3>
+            <p class="cite">CVPR 2027 submission. Under review.</p>
+            <p>
+              The audit asks whether an apparent cloud penalty in WorldFloods v2 is actually cloud,
+              or a difference in what the scenes contain. Scene-composition matching and same-tile
+              synthetic cloud transplantation are the two checks.
+            </p>
+            <table class="gap">
+              <caption>Water IoU, clear against cloudy</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Comparison</th>
+                  <th scope="col">Scenes</th>
+                  <th scope="col">Result</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Raw paired scenes</th>
+                  <td>8</td>
+                  <td>39.3-point gap</td>
+                </tr>
+                <tr>
+                  <th scope="row">After water-fraction matching</th>
+                  <td>8</td>
+                  <td>8.9-point gap</td>
+                </tr>
+                <tr>
+                  <th scope="row">Water-fraction and NDVI co-matching</th>
+                  <td>5</td>
+                  <td>1.4-point gap</td>
+                </tr>
+                <tr>
+                  <th scope="row">Same-tile transplantation, still-visible pixels</th>
+                  <td>32</td>
+                  <td>−5.6 points</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>
+              The intervals did not support a matched cloud effect. The transplant drop reads as
+              sensitivity to synthetic boundaries, not as proof that natural cloud causes the gap.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section band" id="work" aria-labelledby="work-title">
+        <div class="wrap">
+          <h2 id="work-title">Work</h2>
+
+          <div class="group">
+            <h3>Competitions</h3>
+            <div class="entries">
+              <article class="entry">
+                <h4>ArogyaX</h4>
+                <p>
+                  Offline cardiac-screening prototype: BLE ECG capture, on-device triage, and encrypted records.
+                </p>
+                <p class="meta">
+                  <span>PEC Hacks</span>
+                  <span>₹60,000</span>
+                  <a class="out" href="https://github.com/anubhavsinha201/CONGNIVISTA">ArogyaX repository</a>
+                </p>
+              </article>
+              <article class="entry">
+                <h4>Nadaka</h4>
+                <p>
+                  On-device walking-safety assistant for blind and low-vision users, with obstacle alerts, haptics, and speech.
+                </p>
+                <p class="meta">
+                  <span>iQOO Hyderabad · 1st runner-up</span>
+                  <span>₹80,000</span>
+                  <a class="out" href="https://github.com/aadityaa0523/iqoo-Hyderabad">Nadaka repository</a>
+                </p>
+              </article>
+              <article class="entry">
+                <h4>KHOJ</h4>
+                <p>
+                  Offline Bluetooth mesh for finding separated family members and routing life-safety alerts in a dense crowd.
+                </p>
+                <p class="meta">
+                  <span>iQOO Bangalore · Grand finals, top 7</span>
+                  <a class="out" href="https://github.com/aadityaa0523/KHOJ">KHOJ repository</a>
+                </p>
+              </article>
+              <article class="entry">
+                <h4>Saakshya</h4>
+                <p>
+                  Multilingual assistance that turns a cybercrime account into a checked complaint draft and next-step guidance.
+                </p>
+                <p class="meta">
+                  <span>Forge, NxtLaunchpad · Top 10</span>
+                  <a class="out" href="https://github.com/aadityaa0523/saakshya">Saakshya repository</a>
+                </p>
+              </article>
+              <article class="entry">
+                <h4>Absolute Latency Reduction</h4>
+                <p>
+                  Amazon Bedrock streaming gateway and a benchmark harness comparing caching, models, and regions.
+                </p>
+                <p class="meta">
+                  <span>AWS BharatBuilds, Bangalore</span>
+                  <a class="out" href="https://github.com/aadityaa0523/absolute-latency-reduction">Latency repository</a>
+                </p>
+              </article>
+            </div>
+          </div>
+
+          <div class="group">
+            <h3>Projects</h3>
+            <div class="entries">
+              <article class="entry">
+                <h4>Artificial-Emotions</h4>
+                <p>An exploration of an emotional layer inside large language models.</p>
+                <p class="meta">
+                  <a class="out" href="https://github.com/KanakMalpani/Artificial-Emotions" aria-label="Artificial-Emotions repository">Repository</a>
+                </p>
+              </article>
+              <article class="entry">
+                <h4>Binary-Neural-Networks</h4>
+                <p>
+                  Packed binary and ternary CPU inference with XNOR–popcount kernels. Reports 32× weight compression
+                  and about 24× faster execution than NumPy FP32 on a 64×4096×4096 benchmark.
+                </p>
+                <p class="meta">
+                  <span>Independent</span>
+                  <a class="out" href="https://github.com/KanakMalpani/Binary-Neural-Networks" aria-label="Binary-Neural-Networks repository">Repository</a>
+                </p>
+              </article>
+              <article class="entry">
+                <h4>Self-Learning-Vision</h4>
+                <p>
+                  Local-first visual memory for face detection, unknown-entity clustering, and recognition,
+                  with related work on identity recall for assistive glasses.
+                </p>
+                <p class="meta">
+                  <span>Independent</span>
+                  <a class="out" href="https://github.com/KanakMalpani/Self-Learning-Vision" aria-label="Self-Learning-Vision repository">Repository</a>
+                </p>
+              </article>
+              <article class="entry">
+                <h4>PEFT</h4>
+                <p>
+                  Small-language-model fine-tuning toolkit for six PEFT methods, with GSM8K and MATH evaluation
+                  and systems profiling.
+                </p>
+                <p class="meta">
+                  <span>Independent</span>
+                  <a class="out" href="https://github.com/KanakMalpani/PEFT" aria-label="PEFT repository">Repository</a>
+                </p>
+              </article>
+              <article class="entry">
+                <h4>LoopBench</h4>
+                <p>Benchmark suite and scoreboard for feedback-driven systems, using fixed tasks and seeds.</p>
+                <p class="meta">
+                  <span>Independent</span>
+                  <a class="out" href="https://github.com/KanakMalpani/LoopBench" aria-label="LoopBench repository">Repository</a>
+                </p>
+              </article>
+              <article class="entry">
+                <h4>Autonomous-Startup-in-a-Box</h4>
+                <p>
+                  AMD Developer Build Challenge. Six parallel agents for startup ideation, research, product planning,
+                  branding, strategy, and execution.
+                </p>
+                <p class="meta">
+                  <a class="out" href="https://github.com/KanakMalpani/Autonomous-Startup-in-a-Box" aria-label="Autonomous-Startup-in-a-Box repository">Repository</a>
+                </p>
+              </article>
+              <article class="entry">
+                <h4>AI for Lawyers</h4>
+                <p>A tool for lawyers. Currently in MVP testing.</p>
+                <p class="meta"><span>In progress</span></p>
+              </article>
+              <article class="entry">
+                <h4>Drone build</h4>
+                <p>Designed, assembled, and configured a flying drone in 20 days. Reached the semi-finals.</p>
+                <p class="meta"><span>NIT Trichy Technical Fest</span></p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="record" aria-labelledby="record-title">
+        <div class="wrap">
+          <h2 id="record-title">Record</h2>
+          <div class="record">
+            <article>
+              <h3>Education</h3>
+              <ul class="facts">
+                <li>
+                  <span class="when">Ongoing</span>
+                  <span>
+                    <strong>National Institute of Technology Tiruchirappalli</strong>
+                    B.Tech., Electrical and Electronics Engineering
+                  </span>
+                </li>
+                <li>
+                  <span class="when">2023–2025</span>
+                  <span>
+                    <strong>International Indian School, Dammam</strong>
+                    Class XII, CBSE
+                  </span>
+                </li>
+                <li>
+                  <span class="when">2021–2023</span>
+                  <span>
+                    <strong>Mayo College, Ajmer</strong>
+                    Class X, CBSE
+                  </span>
+                </li>
+              </ul>
+              <p>
+                Coursework, finished and in progress: linear algebra and calculus; Fourier transforms and numerical
+                techniques; signals and systems; circuit theory; complex analysis and differential equations;
+                digital electronics; electron devices.
+              </p>
+            </article>
+
+            <article>
+              <h3>Petronash</h3>
+              <p class="cite">Electrical and instrumentation intern · May 2026 · one month</p>
+              <ul>
+                <li>Industrial motors, DOL and star–delta starting, and Type-2 protection coordination.</li>
+                <li>MCCB and ELCB protection, thermal overload relays, and LTMR motor-protection components.</li>
+                <li>P&amp;IDs, process-flow diagrams, and electric heat-tracing controls.</li>
+                <li>Production and skid QC, pump factory-acceptance testing, and how a project moves between teams.</li>
+              </ul>
+            </article>
+
+            <article>
+              <h3>Leadership</h3>
+              <ul>
+                <li>
+                  <strong>Coordinator, E-Cell, NIT Trichy.</strong>
+                  Building a shared knowledge base so the cell keeps what it learns.
+                </li>
+                <li>
+                  <strong>Coordinator, Technical Council, NIT Trichy.</strong>
+                  Second year. Technical and managerial work, including TransfiNITTe, a multi-company competition on campus.
+                </li>
+                <li>
+                  <strong>Marketing, institute fest and TEDx.</strong>
+                  Automated stakeholder outreach for the fest and secured four clients in the first week. TEDx outreach and promotion.
+                </li>
+                <li>
+                  <strong>Prakriti, two years. NSS, one year.</strong>
+                  Campus animal and plant protection, and hygiene and cleanliness drives.
+                </li>
+              </ul>
+            </article>
+
+            <article>
+              <h3>Awards</h3>
+              <ul>
+                <li>
+                  <strong>1st, inter-institute finance event.</strong>
+                  Led a team through a simulated startup: crisis, growth, and an M&amp;A negotiation.
+                </li>
+                <li>
+                  <strong>3rd, finance and strategy event.</strong>
+                  Competitive strategic analysis.
+                </li>
+                <li>
+                  <strong>Finalist, case competition.</strong>
+                  An automobile-company pivot as consumer behaviour and the market shifted.
+                </li>
+              </ul>
+            </article>
+
+            <article>
+              <h3>Skills</h3>
+              <p>
+                Python and C. Machine learning, deep learning, and computer vision. AI pipeline design.
+                Agents and multi-agent orchestration. Workflow automation and scripting.
+                Drone assembly, and the basics of embedded systems.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact" id="contact" aria-labelledby="contact-title">
+        <div class="wrap">
+          <h2 id="contact-title">Contact</h2>
+          <p class="email">
+            <a href="mailto:mrkanakmalpani@gmail.com">mrkanakmalpani@gmail.com</a>
+          </p>
+          <p class="phone"><a href="tel:+919173720905">+91 91737 20905</a></p>
+          <ul class="reach">
+            <li><a class="out" rel="me" href="https://github.com/KanakMalpani">GitHub</a></li>
+            <li><a class="out" rel="me" href="https://www.linkedin.com/in/kanakmalpani/">LinkedIn</a></li>
+            <li><a class="out" href="kanak-malpani-cv.pdf">Curriculum vitae</a></li>
+          </ul>
+          <p class="langs">
+            Tiruchirappalli, Tamil Nadu.
+            English, fluent. Hindi, native. Gujarati, basic speaking. German, in progress.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="colophon">
+      <div class="wrap">
+        <p>© 2026 Kanak Anil Malpani</p>
+      </div>
+    </footer>
+    <script src="site.js"></script>
+  </body>
+</html>
