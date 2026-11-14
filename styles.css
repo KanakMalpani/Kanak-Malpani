@@ -209,15 +209,23 @@ a:hover {
   justify-content: flex-end;
   padding-block: clamp(1.5rem, 5vh, 3.5rem);
   gap: clamp(1.5rem, 4vh, 2.75rem);
+  container-type: inline-size;
 }
 
 h1 {
   margin: auto 0;
+  max-width: 100%;
   font-family: var(--serif);
   font-weight: 600;
-  font-size: clamp(4rem, min(16vw, 23vh), 12rem);
+  font-size: clamp(4rem, min(26cqi, 22svh), 18rem);
   letter-spacing: -0.035em;
   line-height: 0.86;
+}
+
+@media (min-width: 1600px) and (min-height: 1100px) {
+  h1 {
+    font-size: clamp(4rem, min(34cqi, 22svh), 20rem);
+  }
 }
 
 .kanak,
@@ -318,7 +326,8 @@ h1 {
   margin: 0 0 1rem;
 }
 
-.gap {
+.gap,
+.sheet {
   width: min(100%, 44rem);
   border-collapse: collapse;
   margin: 0.4rem 0 1.25rem;
@@ -335,7 +344,8 @@ h1 {
   width: 11rem;
 }
 
-.gap caption {
+.gap caption,
+.sheet caption {
   caption-side: top;
   text-align: left;
   font-family: var(--serif);
@@ -346,7 +356,9 @@ h1 {
 }
 
 .gap th,
-.gap td {
+.gap td,
+.sheet th,
+.sheet td {
   text-align: left;
   vertical-align: top;
   padding: 0.7rem 1rem 0.7rem 0;
@@ -354,19 +366,72 @@ h1 {
   font-weight: 400;
 }
 
-.gap thead th {
+.gap thead th,
+.sheet thead th {
   color: var(--ink-soft);
   font-size: 0.92rem;
   font-weight: 700;
 }
 
 .gap td:last-child,
-.gap th:last-child {
+.gap th:last-child,
+.sheet td:last-child,
+.sheet th:last-child {
   padding-right: 0;
 }
 
-.gap td:last-child {
+.gap td:last-child,
+.sheet td:last-child {
   white-space: nowrap;
+}
+
+.leads {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem 3.5rem;
+  margin-bottom: 4.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.lead h3 {
+  margin: 0 0 0.7rem;
+  font-family: var(--serif);
+  font-weight: 560;
+  font-size: clamp(2.15rem, 3vw, 3rem);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.lead p {
+  margin: 0 0 0.9rem;
+}
+
+.lead-line {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.3rem;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.lead .sheet {
+  width: 100%;
+  margin-top: 0.2rem;
+}
+
+.entry.quiet h4 {
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.aside li {
+  color: var(--ink-soft);
+}
+
+.aside strong {
+  color: var(--ink);
 }
 
 .band {
@@ -419,6 +484,18 @@ h1 {
 .record {
   display: grid;
   gap: 3rem;
+}
+
+@media (min-width: 960px) {
+  .record {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 4rem;
+    align-items: start;
+  }
+
+  .record .wide {
+    grid-column: 1 / -1;
+  }
 }
 
 .record article > :last-child {
@@ -555,7 +632,8 @@ a.out::after {
 
   .lede,
   .entry,
-  .facts li {
+  .facts li,
+  .leads {
     grid-template-columns: 1fr;
   }
 
