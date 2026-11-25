@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>What Does the Clear–Cloudy Gap Measure? — Kanak Malpani</title>
+    <meta
+      name="description"
+      content="Kanak Anil Malpani. A controlled audit of clear–cloudy flood segmentation. CVPR 2027 submission, under review. Abstract, manuscript, and code."
+    />
+    <link rel="canonical" href="https://kanakmalpani.github.io/Kanak-Malpani/research/worldfloods/" />
+    <meta name="theme-color" content="#12100e" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="What Does the Clear–Cloudy Gap Measure?" />
+    <meta
+      property="og:description"
+      content="CVPR 2027 submission, under review. Released checkpoints, three named controls, no new training."
+    />
+    <meta property="og:url" content="https://kanakmalpani.github.io/Kanak-Malpani/research/worldfloods/" />
+    <meta property="og:image" content="https://kanakmalpani.github.io/Kanak-Malpani/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,460;0,9..144,600;1,9..144,460;1,9..144,560&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body class="page">
+    <a class="skip" href="#content">Skip to paper</a>
+    <header class="bar">
+      <div class="wrap bar-inner">
+        <a class="mark" href="../../">Malpani</a>
+        <nav aria-label="Site">
+          <a href="../../notes/">Notes</a>
+          <a href="../" aria-current="page">Research</a>
+          <a href="../../projects/">Projects</a>
+          <a href="../../now/">Now</a>
+          <a href="../../about/">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content">
+      <header class="page-open">
+        <div class="wrap">
+          <h1 class="ruled long">What Does the Clear–Cloudy Gap Measure? A Controlled Audit of WorldFloods Flood Segmentation</h1>
+          <p class="cite">
+            Kanak Anil Malpani. CVPR 2027 submission. Under review.
+            The review manuscript’s title drops “WorldFloods” and ends at “A Controlled Audit of Flood Segmentation.”
+          </p>
+        </div>
+      </header>
+      <div class="wrap prose">
+        <h2>Abstract</h2>
+        <p>
+          A clear–cloudy water-IoU gap mixes composition with a same-tile fill unless the composition control, the same-tile control, and the aggregator are named. We score released checkpoints under those three controls and do not train them. On WorldFloods the frozen UNet unmatched scene-mean gap is 39.3 [22.4, 57.6], water-fraction matching yields 8.9 [−0.7, 17.8], and water-fraction-plus-NDVI matching yields 1.4 [−24.5, 24.5]. The hard paste is 5.6 [3.0, 8.5] on 32 scenes, and the test scene mean is 3.8 [1.5, 6.9]. That paste is a constructed fill on clear tiles, scored on unpainted pixels. It is not natural cloud.
+        </p>
+        <p>
+          On C2S-MS Floods the same controls, applied to frozen Prithvi, give composition gaps that exclude zero: unmatched 27.8 [15.3, 39.0], water-fraction 21.1 [10.9, 32.2], and NDVI 25.4 [13.9, 36.1], each on 16 events, while the same-tile paired contrast includes zero. The same three controls show this separation on both datasets, so it is not a result of one checkpoint or one dataset. A larger corpus is informative only when it reports the same three controls, composition, same-tile, and aggregator; the two datasets show the controls, not a size effect. A third collection was inconclusive and is omitted.
+        </p>
+
+        <h2>Materials</h2>
+        <ul class="materials">
+          <li>
+            <a class="out" href="https://github.com/KanakMalpani/Reproducing-research-/blob/main/paper/main.pdf">Manuscript PDF</a>
+          </li>
+          <li>
+            <a class="out" href="https://github.com/KanakMalpani/Reproducing-research-">Code and provenance</a>
+          </li>
+          <li><span class="missing">Poster, not posted</span></li>
+          <li><span class="missing">Slides, not posted</span></li>
+        </ul>
+        <p class="cite">No further model training is underway. The frozen WorldFloods results stay as they were.</p>
+
+        <div class="cite-bar">
+          <h2>Citation</h2>
+          <button class="copy" type="button" data-copy-from="cite-flood">Copy citation</button>
+        </div>
+        <pre class="citation" id="cite-flood"><code>@unpublished{malpani-2026-clear-cloudy,
+  title  = {What Does the Clear--Cloudy Gap Measure?
+            A Controlled Audit of WorldFloods Flood Segmentation},
+  author = {Malpani, Kanak Anil},
+  year   = {2026},
+  note   = {CVPR 2027 submission. Under review.}
+}</code></pre>
+
+        <p>
+          <a href="../../notes/clear-cloudy-gap/">Note, for a post to point at</a>
+        </p>
+      </div>
+    </main>
+
+    <footer class="colophon">
+      <div class="wrap">
+        <p>© 2026 Kanak Anil Malpani</p>
+      </div>
+    </footer>
+    <script src="../../site.js"></script>
+  </body>
+</html>

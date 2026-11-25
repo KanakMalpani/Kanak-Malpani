@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The matched gap does not support a cloud effect — Kanak Malpani</title>
+    <meta
+      name="description"
+      content="A note on the clear–cloudy water-IoU audit. Released checkpoints, three named controls, no new training. WorldFloods and C2S-MS."
+    />
+    <link rel="canonical" href="https://kanakmalpani.github.io/Kanak-Malpani/notes/clear-cloudy-gap/" />
+    <meta name="theme-color" content="#12100e" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="The matched gap does not support a cloud effect" />
+    <meta
+      property="og:description"
+      content="WorldFloods and C2S-MS, scored on released checkpoints. The unmatched water-IoU gap shrinks once scene composition is matched. The same-tile paste is not natural cloud."
+    />
+    <meta property="og:url" content="https://kanakmalpani.github.io/Kanak-Malpani/notes/clear-cloudy-gap/" />
+    <meta property="og:image" content="https://kanakmalpani.github.io/Kanak-Malpani/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,460;0,9..144,600;1,9..144,460;1,9..144,560&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body class="page">
+    <a class="skip" href="#content">Skip to note</a>
+    <header class="bar">
+      <div class="wrap bar-inner">
+        <a class="mark" href="../../">Malpani</a>
+        <nav aria-label="Site">
+          <a href="../" aria-current="page">Notes</a>
+          <a href="../../research/">Research</a>
+          <a href="../../projects/">Projects</a>
+          <a href="../../now/">Now</a>
+          <a href="../../about/">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content">
+      <header class="page-open">
+        <div class="wrap">
+          <h1 class="ruled long">The matched gap does not support a cloud effect</h1>
+          <p class="cite">November 2026. Clear–cloudy flood segmentation. Under review.</p>
+        </div>
+      </header>
+      <div class="wrap prose">
+        <p>
+          A clear–cloudy water-IoU gap mixes two things unless you name them apart: the scenes were different pictures, and cloud filled the same tile. This note is the short version of that split. The manuscript is under review for CVPR 2027. No new model is trained for it. The scores are on released checkpoints.
+        </p>
+        <p>
+          Three controls have to be named: composition, same-tile, and the aggregator. On WorldFloods, a frozen UNet, the unmatched scene-mean gap is 39.3 points, interval [22.4, 57.6]. Matching on water fraction brings it to 8.9 [−0.7, 17.8]. Matching on water fraction and NDVI brings it to 1.4 [−24.5, 24.5]. The matched intervals include zero.
+        </p>
+        <p>
+          The same-tile check pastes a constructed fill onto clear tiles and scores the pixels that stay visible. That hard paste is 5.6 points [3.0, 8.5] on 32 scenes. The test scene mean is 3.8 [1.5, 6.9]. The paste is not natural cloud.
+        </p>
+        <p>
+          The same three controls on C2S-MS Floods, with frozen Prithvi, still separate the two stories. Composition gaps there exclude zero: unmatched 27.8 [15.3, 39.0], water-fraction 21.1 [10.9, 32.2], and NDVI 25.4 [13.9, 36.1], each on 16 events. The same-tile paired contrast includes zero. The split is not one checkpoint and not one dataset. A third collection was inconclusive and is left out. A larger corpus only helps if it reports the same three controls.
+        </p>
+        <p class="permalink">
+          <a href="https://kanakmalpani.github.io/Kanak-Malpani/notes/clear-cloudy-gap/">kanakmalpani.github.io/Kanak-Malpani/notes/clear-cloudy-gap/</a>
+          <button class="copy" type="button" data-copy-path="notes/clear-cloudy-gap/">Copy link</button>
+        </p>
+        <p>
+          <a href="../../research/worldfloods/">Abstract, manuscript, and citation</a>
+        </p>
+      </div>
+    </main>
+
+    <footer class="colophon">
+      <div class="wrap">
+        <p>© 2026 Kanak Anil Malpani</p>
+      </div>
+    </footer>
+    <script src="../../site.js"></script>
+  </body>
+</html>

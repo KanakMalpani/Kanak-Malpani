@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nadaka — Kanak Malpani</title>
+    <meta
+      name="description"
+      content="Nadaka is an on-device walking-safety assistant for blind and low-vision people. It runs offline on one iQOO phone. 1st runner-up, iQOO Hyderabad."
+    />
+    <link rel="canonical" href="https://kanakmalpani.github.io/Kanak-Malpani/projects/nadaka/" />
+    <meta name="theme-color" content="#12100e" />
+    <meta property="og:title" content="Nadaka" />
+    <meta
+      property="og:description"
+      content="Walking safety on one phone, offline. Vibration first, speech second. It never says the path is safe."
+    />
+    <meta property="og:url" content="https://kanakmalpani.github.io/Kanak-Malpani/projects/nadaka/" />
+    <meta property="og:image" content="https://kanakmalpani.github.io/Kanak-Malpani/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,460;0,9..144,600;1,9..144,460;1,9..144,560&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body class="page">
+    <a class="skip" href="#content">Skip to project</a>
+    <header class="bar">
+      <div class="wrap bar-inner">
+        <a class="mark" href="../../">Malpani</a>
+        <nav aria-label="Site">
+          <a href="../../notes/">Notes</a>
+          <a href="../../research/">Research</a>
+          <a href="../" aria-current="page">Projects</a>
+          <a href="../../now/">Now</a>
+          <a href="../../about/">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content">
+      <header class="page-open">
+        <div class="wrap">
+          <h1 class="ruled">Nadaka</h1>
+          <p class="deck">
+            An on-device walking-safety assistant for blind and low-vision people. It runs on one iQOO phone, offline. It reports what it measured. It does not tell the person the path is safe.
+          </p>
+        </div>
+      </header>
+      <div class="wrap prose">
+        <h2>What it is</h2>
+        <p>
+          Nadaka is worn at chest height, camera facing forward. While the person walks, it watches the path and turns what it finds into vibration first and a few words of speech second: drop-offs and stairs, obstacles at head and waist height, people and vehicles coming closer, and hazards a white cane does not reach in time. The cane stays in charge.
+        </p>
+        <p>
+          On request it reads money, medicine, bus numbers, signs, and lift panels, finds doors and exits, and answers a question about the scene. If the person falls, it sounds a siren, texts their location to family, and keeps a short record. Alerts come from fixed logic. Language models describe and read. They are not allowed to say it is safe to walk, cross, or go.
+        </p>
+
+        <h2>What runs on the phone</h2>
+        <p>
+          Perception, hazard logic, and the emergency path run on the phone’s Snapdragon Hexagon NPU. The network is optional, and only for a free-form question. The walking loop is budgeted at 10 frames a second. In the build notes, YOLOX is about 4 ms and the depth model about 30 ms of that frame. Depth Anything V2 supplies the disparity map. Frames that arrive while the analysis thread is busy are dropped, not queued. Standing, sitting, and riding slow the camera further, so the phone is not doing 10 Hz of work when the person is still.
+        </p>
+        <p>
+          Missing or inconsistent measurements stay quiet, or say they cannot tell. They do not invent a distance.
+        </p>
+
+        <h2>Result</h2>
+        <p>iQOO Hyderabad. 1st runner-up. ₹80,000.</p>
+
+        <h2>Link</h2>
+        <ul class="materials">
+          <li><a class="out" href="https://github.com/aadityaa0523/iqoo-Hyderabad">Nadaka repository</a></li>
+        </ul>
+      </div>
+    </main>
+
+    <footer class="colophon">
+      <div class="wrap">
+        <p>© 2026 Kanak Anil Malpani</p>
+      </div>
+    </footer>
+    <script src="../../site.js"></script>
+  </body>
+</html>

@@ -27,7 +27,7 @@ jobs:
       - name: Stage site
         run: |
           mkdir -p _site
-          cp index.html styles.css site.js favicon.svg og.png kanak-malpani-cv.pdf _site/
+          cp -a index.html styles.css site.js favicon.svg og.png kanak-malpani-cv.pdf 404.html notes research projects now about _site/
           touch _site/.nojekyll
 
       - name: Configure Pages

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Efficient Adaptation of Small Language Models for Reliable Mathematical Reasoning — Kanak Malpani</title>
+    <meta
+      name="description"
+      content="Kanak Anil Malpani. GroundLM Workshop, ACL 2026. Abstract, PDF, training code, and a citation for the six-method PEFT comparison."
+    />
+    <link rel="canonical" href="https://kanakmalpani.github.io/Kanak-Malpani/research/groundlm/" />
+    <meta name="theme-color" content="#12100e" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Efficient Adaptation of Small Language Models for Reliable Mathematical Reasoning" />
+    <meta
+      property="og:description"
+      content="Published at the GroundLM Workshop, ACL 2026. Qwen2.5-1.5B with PiSSA reaches 71.40% on GSM8K."
+    />
+    <meta property="og:url" content="https://kanakmalpani.github.io/Kanak-Malpani/research/groundlm/" />
+    <meta property="og:image" content="https://kanakmalpani.github.io/Kanak-Malpani/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,460;0,9..144,600;1,9..144,460;1,9..144,560&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ScholarlyArticle",
+        "headline": "Efficient Adaptation of Small Language Models for Reliable Mathematical Reasoning",
+        "author": { "@type": "Person", "name": "Kanak Anil Malpani" },
+        "datePublished": "2026-10",
+        "publisher": { "@type": "Organization", "name": "Association for Computational Linguistics" },
+        "sameAs": "https://doi.org/10.18653/2026.groundlm-1.91"
+      }
+    </script>
+  </head>
+  <body class="page">
+    <a class="skip" href="#content">Skip to paper</a>
+    <header class="bar">
+      <div class="wrap bar-inner">
+        <a class="mark" href="../../">Malpani</a>
+        <nav aria-label="Site">
+          <a href="../../notes/">Notes</a>
+          <a href="../" aria-current="page">Research</a>
+          <a href="../../projects/">Projects</a>
+          <a href="../../now/">Now</a>
+          <a href="../../about/">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content">
+      <header class="page-open">
+        <div class="wrap">
+          <h1 class="ruled long">Efficient Adaptation of Small Language Models for Reliable Mathematical Reasoning</h1>
+          <p class="cite">
+            Kanak Anil Malpani. GroundLM Workshop, ACL 2026. Pages 1221–1231. Published.
+          </p>
+        </div>
+      </header>
+      <div class="wrap prose">
+        <h2>Abstract</h2>
+        <p>
+          Efficient training and adaptation are central to deploying language models under resource constraints. We present a controlled comparison of six parameter-efficient fine-tuning (PEFT) methods—LoRA, QLoRA, DoRA, PiSSA, LoftQ, and AdaLoRA—across the full cross-product of three base models (Qwen2.5-1.5B, Qwen2.5-7B, Llama-3-8B) and two mathematical reasoning benchmarks (GSM8K, MATH), with every configuration trained on MetaMathQA under one identical budget and reported as mean ± standard deviation over three seeds. Qwen2.5-1.5B + PiSSA reaches 71.40 ± 0.27% on GSM8K, exceeding the unadapted 7B base model (68.50 ± 0.42%; Welch’s t(3.4) = 10.06, p = 0.001).
+        </p>
+        <p>
+          Significance testing shows that the method ordering—PiSSA &gt; DoRA &gt; LoRA ≈ AdaLoRA ≈ LoftQ ≈ QLoRA—is identical across all three base models (Kendall’s τ = 1.0), but that only the PiSSA and DoRA gains over LoRA survive multiple-comparison correction: the LoRA/QLoRA/LoftQ/AdaLoRA cluster is statistically indistinguishable at n = 3. Four-bit QLoRA cuts peak training VRAM by up to 69.6% (72.8% with PagedAdamW), within one point of the 68.7% predicted by a static-memory model, while PagedAdamW trades 15–20% throughput for memory safety. We add rank and target-module ablations, a GSM8K error taxonomy, and the finding that PiSSA’s spectral initialization at r = 16 outperforms LoRA at r = 64, and we release the training, evaluation, and profiling code with the exact configuration for every run.
+        </p>
+
+        <h2>Materials</h2>
+        <ul class="materials">
+          <li><a class="out" href="https://aclanthology.org/2026.groundlm-1.91/">Anthology page</a></li>
+          <li><a class="out" href="https://aclanthology.org/2026.groundlm-1.91.pdf">PDF</a></li>
+          <li><a class="out" href="https://github.com/KanakMalpani/PEFT">Code</a></li>
+          <li><a class="out" href="https://doi.org/10.18653/2026.groundlm-1.91">DOI</a></li>
+          <li><span class="missing">Poster, not posted</span></li>
+          <li><span class="missing">Slides, not posted</span></li>
+        </ul>
+
+        <div class="cite-bar">
+          <h2>Citation</h2>
+          <button class="copy" type="button" data-copy-from="cite-groundlm">Copy citation</button>
+        </div>
+        <pre class="citation" id="cite-groundlm"><code>@inproceedings{malpani-2026-efficient,
+  title     = {Efficient Adaptation of Small Language Models
+               for Reliable Mathematical Reasoning},
+  author    = {Malpani, Kanak Anil},
+  booktitle = {Proceedings of the 1st Workshop on Grounding
+               Language Models: Learning Faithfully and
+               Efficiently (GroundLM 2026)},
+  month     = oct,
+  year      = {2026},
+  address   = {Budapest, Hungary},
+  publisher = {Association for Computational Linguistics},
+  pages     = {1221--1231},
+  doi       = {10.18653/2026.groundlm-1.91},
+  url       = {https://aclanthology.org/2026.groundlm-1.91/}
+}</code></pre>
+
+        <p>
+          <a href="../../notes/six-adapters-one-budget/">Note, for a post to point at</a>
+        </p>
+      </div>
+    </main>
+
+    <footer class="colophon">
+      <div class="wrap">
+        <p>© 2026 Kanak Anil Malpani</p>
+      </div>
+    </footer>
+    <script src="../../site.js"></script>
+  </body>
+</html>

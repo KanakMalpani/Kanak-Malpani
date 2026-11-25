@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Binary-Neural-Networks — Kanak Malpani</title>
+    <meta
+      name="description"
+      content="Packed binary and ternary CPU inference. 32× is the uint64 weight pack. About 23.9× is wall-clock against NumPy FP32 on a 64×4096×4096 run."
+    />
+    <link rel="canonical" href="https://kanakmalpani.github.io/Kanak-Malpani/projects/binary-neural-networks/" />
+    <meta name="theme-color" content="#12100e" />
+    <meta property="og:title" content="Binary-Neural-Networks" />
+    <meta
+      property="og:description"
+      content="Packed XNOR–popcount kernels. The 32× pack and the measured speed are reported as different numbers."
+    />
+    <meta property="og:url" content="https://kanakmalpani.github.io/Kanak-Malpani/projects/binary-neural-networks/" />
+    <meta property="og:image" content="https://kanakmalpani.github.io/Kanak-Malpani/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,460;0,9..144,600;1,9..144,460;1,9..144,560&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body class="page">
+    <a class="skip" href="#content">Skip to project</a>
+    <header class="bar">
+      <div class="wrap bar-inner">
+        <a class="mark" href="../../">Malpani</a>
+        <nav aria-label="Site">
+          <a href="../../notes/">Notes</a>
+          <a href="../../research/">Research</a>
+          <a href="../" aria-current="page">Projects</a>
+          <a href="../../now/">Now</a>
+          <a href="../../about/">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content">
+      <header class="page-open">
+        <div class="wrap">
+          <h1 class="ruled">Binary-Neural-Networks</h1>
+          <p class="deck">
+            Packed binary and ternary inference for CPU and edge. The size of the weights and the speed of the kernel are different claims, and the report prints them as different numbers.
+          </p>
+        </div>
+      </header>
+      <div class="wrap prose">
+        <h2>What I built</h2>
+        <p>
+          Most “binary” demos train with a straight-through estimator and then infer with <code>sign()</code> inside an ordinary linear layer. That is a simulation. On a commodity GPU it is often slower than FP32, and the 32× quoted in papers is usually the bit-pack, not the latency.
+        </p>
+        <p>
+          This lab quantizes weights to ±1, packs 64 of them into a <code>uint64</code>, and runs an XNOR–popcount kernel. Binary and ternary paths are both there. A report can come back <code>REFUSE</code> when the cosine of a drop-in wrap has collapsed, so a bad wrap is not described as a 32× win. The library is <code>bnn</code>, installed from PyPI as <code>bnn-lab</code> (the bare <code>bnn</code> name on PyPI is a different package). Version 1.0.0. MIT.
+        </p>
+
+        <h2>Results</h2>
+        <p>From the published dual-metric report. Speed is one machine, not a brochure.</p>
+        <table class="sheet wide-sheet">
+          <caption>What each number is allowed to mean</caption>
+          <thead>
+            <tr>
+              <th scope="col">Measure</th>
+              <th scope="col">Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Weight pack, uint64-aligned</th>
+              <td>32×, exact size</td>
+            </tr>
+            <tr>
+              <th scope="row">64×4096×4096 against NumPy FP32</th>
+              <td>about 23.9×, wall-clock, one CPU</td>
+            </tr>
+            <tr>
+              <th scope="row">Resident RAM, measured buffers</th>
+              <td>29.68×, under the theoretical 32×</td>
+            </tr>
+            <tr>
+              <th scope="row">AVX-512, AVX2, NEON, scalar</th>
+              <td>err = 0, binary and ternary</td>
+            </tr>
+            <tr>
+              <th scope="row">MNIST, binary / ternary / FP32</th>
+              <td>96.36% / 97.16% / 97.67%</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Links</h2>
+        <ul class="materials">
+          <li><a class="out" href="https://github.com/KanakMalpani/Binary-Neural-Networks">Repository</a></li>
+          <li><a class="out" href="https://kanakmalpani.github.io/Binary-Neural-Networks/">Docs</a></li>
+          <li><a class="out" href="https://pypi.org/project/bnn-lab/">bnn-lab on PyPI</a></li>
+        </ul>
+      </div>
+    </main>
+
+    <footer class="colophon">
+      <div class="wrap">
+        <p>© 2026 Kanak Anil Malpani</p>
+      </div>
+    </footer>
+    <script src="../../site.js"></script>
+  </body>
+</html>

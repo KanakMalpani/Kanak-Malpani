@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LoopBench — Kanak Malpani</title>
+    <meta
+      name="description"
+      content="LoopBench is a public scoreboard for feedback-driven loops. Nineteen fixed tasks, four suites, fixed seeds, and a generalist rank anyone can recompute."
+    />
+    <link rel="canonical" href="https://kanakmalpani.github.io/Kanak-Malpani/projects/loopbench/" />
+    <meta name="theme-color" content="#12100e" />
+    <meta property="og:title" content="LoopBench" />
+    <meta
+      property="og:description"
+      content="Fixed tasks, fixed seeds, a public leaderboard. Nineteen tasks across four suites."
+    />
+    <meta property="og:url" content="https://kanakmalpani.github.io/Kanak-Malpani/projects/loopbench/" />
+    <meta property="og:image" content="https://kanakmalpani.github.io/Kanak-Malpani/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,460;0,9..144,600;1,9..144,460;1,9..144,560&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body class="page">
+    <a class="skip" href="#content">Skip to project</a>
+    <header class="bar">
+      <div class="wrap bar-inner">
+        <a class="mark" href="../../">Malpani</a>
+        <nav aria-label="Site">
+          <a href="../../notes/">Notes</a>
+          <a href="../../research/">Research</a>
+          <a href="../" aria-current="page">Projects</a>
+          <a href="../../now/">Now</a>
+          <a href="../../about/">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content">
+      <header class="page-open">
+        <div class="wrap">
+          <h1 class="ruled">LoopBench</h1>
+          <p class="deck">
+            A public scoreboard for feedback-driven systems. You submit a loop specification. The tasks and the seeds do not move. The rank is a number someone else can recompute.
+          </p>
+        </div>
+      </header>
+      <div class="wrap prose">
+        <h2>What I built</h2>
+        <p>
+          LoopBench takes an LSS spec, runs it in LoopGym, and writes a <code>results.json</code> that has to match a published schema. It scores Success@k, how often the run reaches the goal, and LES_obs, an observed composite across eight categories. v0.2 accepts SimEnv submissions, which need no API keys. The package is on PyPI as <code>loopbench</code>. MIT.
+        </p>
+        <p>
+          Nineteen micro-tasks feed four suites. The generalist rank is the mean of the four suite scores, so a loop that only works in one corner does not lead the board.
+        </p>
+
+        <h2>The four suites</h2>
+        <table class="sheet wide-sheet">
+          <caption>v0.2, nineteen tasks</caption>
+          <thead>
+            <tr>
+              <th scope="col">Suite</th>
+              <th scope="col">Tasks</th>
+              <th scope="col">What it stresses</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Repair and verify</th>
+              <td>5</td>
+              <td>Verify-driven repair, and safety</td>
+            </tr>
+            <tr>
+              <th scope="row">Multi-agent</th>
+              <td>5</td>
+              <td>Coordination</td>
+            </tr>
+            <tr>
+              <th scope="row">Research and RAG</th>
+              <td>4</td>
+              <td>Retrieval and research</td>
+            </tr>
+            <tr>
+              <th scope="row">Composition and safety</th>
+              <td>5</td>
+              <td>Composition, a person in the loop, memory</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          The board recorded on 25 June 2026 leads with a maintainer generalist LES of 86.7. That figure is the published board, not a number I am re-reporting from a fresh run here.
+        </p>
+
+        <h2>Links</h2>
+        <ul class="materials">
+          <li><a class="out" href="https://github.com/KanakMalpani/LoopBench">Repository</a></li>
+          <li><a class="out" href="https://kanakmalpani.github.io/LoopBench/">Live leaderboard</a></li>
+          <li><a class="out" href="https://pypi.org/project/loopbench/">loopbench on PyPI</a></li>
+        </ul>
+      </div>
+    </main>
+
+    <footer class="colophon">
+      <div class="wrap">
+        <p>© 2026 Kanak Anil Malpani</p>
+      </div>
+    </footer>
+    <script src="../../site.js"></script>
+  </body>
+</html>

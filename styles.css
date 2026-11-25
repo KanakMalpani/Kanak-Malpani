@@ -212,7 +212,7 @@ a:hover {
   container-type: inline-size;
 }
 
-h1 {
+.cover h1 {
   margin: auto 0;
   max-width: 100%;
   font-family: var(--serif);
@@ -223,7 +223,7 @@ h1 {
 }
 
 @media (min-width: 1600px) and (min-height: 1100px) {
-  h1 {
+  .cover h1 {
     font-size: clamp(4rem, min(34cqi, 22svh), 20rem);
   }
 }
@@ -303,6 +303,26 @@ h1 {
   margin-top: 4.25rem;
   padding-top: 4.25rem;
   border-top: 1px solid var(--line);
+}
+
+.paper h3 a,
+.lead h3 a,
+.entry h4 a {
+  color: inherit;
+  text-decoration-color: rgba(28, 22, 18, 0.35);
+}
+
+.paper h3 a:visited,
+.lead h3 a:visited,
+.entry h4 a:visited {
+  color: inherit;
+}
+
+.paper h3 a:hover,
+.lead h3 a:hover,
+.entry h4 a:hover {
+  color: var(--oxide);
+  text-decoration-color: var(--oxide);
 }
 
 .paper h3,
@@ -662,6 +682,305 @@ a.out::after {
     flex-direction: column;
     gap: 0;
     padding-block: 0.7rem 0.2rem;
+  }
+}
+
+.page-open {
+  padding-top: clamp(3.25rem, 8vh, 6rem);
+}
+
+.night-open {
+  background: var(--night);
+  color: var(--night-ink);
+}
+
+.night-open + .prose {
+  padding-top: clamp(1.35rem, 3vw, 2rem);
+}
+
+.night-open .wrap {
+  padding-bottom: clamp(1.5rem, 4vh, 2.4rem);
+}
+
+.night-open a,
+.night-open a:visited {
+  color: var(--oxide-bright);
+}
+
+.night-open :focus-visible {
+  outline-color: var(--oxide-bright);
+}
+
+.page h1 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 560;
+  font-size: clamp(3.4rem, 8vw, 5.5rem);
+  letter-spacing: -0.03em;
+  line-height: 0.92;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.page h1.long {
+  font-size: clamp(2.15rem, 4.8vw, 3.45rem);
+  line-height: 1.02;
+  max-width: min(18ch, 100%);
+}
+
+.ruled {
+  position: relative;
+  padding-bottom: 0.28em;
+}
+
+.ruled::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0.045em;
+  min-height: 3px;
+  background: var(--oxide);
+  transform-origin: left center;
+}
+
+.night-open .ruled::after {
+  background: var(--oxide-bright);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ruled::after {
+    transform: scaleX(0);
+    animation: draw-rule 900ms var(--ease) 120ms forwards;
+  }
+}
+
+.deck {
+  margin: 1.15rem 0 0;
+  max-width: 42rem;
+  font-size: 1.125rem;
+}
+
+.night-open .deck {
+  color: var(--night-soft);
+}
+
+.page .cite {
+  margin-top: 1rem;
+}
+
+.prose {
+  padding-top: clamp(2.25rem, 5vw, 3.25rem);
+  padding-bottom: clamp(4rem, 8vw, 6.5rem);
+}
+
+.night-open + .prose,
+.page-open + .prose {
+  padding-top: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.page h2 {
+  margin: 2.8rem 0 0.85rem;
+  font-family: var(--serif);
+  font-weight: 560;
+  font-size: clamp(1.65rem, 2.5vw, 2.15rem);
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+}
+
+.page h2:first-child {
+  margin-top: 0;
+}
+
+.page .prose p,
+.page .prose li {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.catalog {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0.25rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.catalog li {
+  max-width: none;
+  border-top: 1px solid var(--line);
+}
+
+.catalog a {
+  display: grid;
+  grid-template-columns: 9.25rem minmax(0, 1fr);
+  gap: 0.35rem 2rem;
+  align-items: start;
+  padding-block: 1.4rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.catalog a:visited {
+  color: inherit;
+}
+
+.catalog time,
+.catalog .mark-col {
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+  padding-top: 0.35rem;
+}
+
+.catalog strong {
+  display: block;
+  font-family: var(--serif);
+  font-weight: 560;
+  font-size: clamp(1.55rem, 2.4vw, 2rem);
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+}
+
+.catalog .blurb {
+  display: block;
+  margin-top: 0.4rem;
+  max-width: 62ch;
+  color: var(--ink);
+}
+
+.lead-first li:first-child strong {
+  font-size: clamp(2.05rem, 4vw, 3.05rem);
+  line-height: 1.05;
+}
+
+.catalog a:hover strong {
+  color: var(--oxide);
+}
+
+.materials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 1.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-width: none;
+}
+
+.materials li {
+  max-width: none;
+}
+
+.missing {
+  color: var(--ink-soft);
+}
+
+.cite-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6rem 1.5rem;
+  max-width: 44rem;
+  margin-top: 2.8rem;
+}
+
+.cite-bar h2 {
+  margin: 0;
+}
+
+.citation {
+  display: block;
+  width: min(100%, 44rem);
+  box-sizing: border-box;
+  margin: 0.85rem 0 0;
+  padding: 1rem 1.15rem;
+  overflow-x: auto;
+  background: var(--ivory-deep);
+  color: var(--ink);
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  white-space: pre;
+}
+
+.citation code {
+  font: inherit;
+  white-space: inherit;
+}
+
+button.copy {
+  appearance: none;
+  font: inherit;
+  font-size: 1rem;
+  line-height: inherit;
+  color: var(--oxide);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  border-radius: 0;
+  padding: 0.05rem 0;
+  cursor: pointer;
+}
+
+button.copy:hover {
+  border-bottom-width: 2px;
+}
+
+.permalink {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.7rem 1.25rem;
+  max-width: none;
+  margin-top: 1.75rem;
+}
+
+.permalink a {
+  overflow-wrap: anywhere;
+}
+
+.sheet.wide-sheet {
+  width: min(100%, 40rem);
+}
+
+@media (max-width: 800px) {
+  .catalog a {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+
+  .catalog time,
+  .catalog .mark-col {
+    padding-top: 0;
+  }
+
+  .gap td:last-child,
+  .sheet td:last-child {
+    white-space: normal;
+  }
+}
+
+@media print {
+  .night-open {
+    background: white;
+    color: black;
+  }
+
+  .night-open a,
+  .night-open .deck {
+    color: black;
+  }
+
+  .ruled::after,
+  .night-open .ruled::after {
+    background: black;
+    transform: none;
+    animation: none;
+  }
+
+  button.copy {
+    display: none;
   }
 }
 
